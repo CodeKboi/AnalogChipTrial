@@ -6,17 +6,9 @@ V {}
 S {}
 E {}
 N 210 -320 240 -320 {
-lab=#net1}
-N 240 -320 240 -290 {
-lab=#net1}
-N 210 -290 240 -290 {
-lab=#net1}
+lab=GND}
 N 420 -320 450 -320 {
-lab=#net1}
-N 420 -320 420 -290 {
-lab=#net1}
-N 420 -290 450 -290 {
-lab=#net1}
+lab=GND}
 N 210 -470 210 -350 {
 lab=vout1}
 N 450 -390 450 -350 {
@@ -32,13 +24,13 @@ lab=VDD}
 N 330 -590 330 -560 {
 lab=VDD}
 N 210 -290 210 -240 {
-lab=#net1}
+lab=virtual_gnd}
 N 210 -240 450 -240 {
-lab=#net1}
+lab=virtual_gnd}
 N 450 -290 450 -240 {
-lab=#net1}
+lab=virtual_gnd}
 N 320 -240 320 -170 {
-lab=#net1}
+lab=virtual_gnd}
 N 160 -500 170 -500 {
 lab=vout1}
 N 160 -500 160 -460 {
@@ -73,6 +65,10 @@ N 320 -100 340 -100 {
 lab=GND}
 N 450 -470 450 -390 {
 lab=vout2}
+N 240 -320 420 -320 {
+lab=GND}
+N 320 -320 320 -280 {
+lab=GND}
 C {sky130_fd_pr/nfet_01v8.sym} 300 -140 0 0 {name=M1
 W=10
 L=0.15
@@ -150,3 +146,5 @@ C {ipin.sym} 490 -320 0 1 {name=p1 sig_type=std_logic lab=vin2}
 C {ipin.sym} 170 -320 0 0 {name=p4 sig_type=std_logic lab=vin1}
 C {iopin.sym} 320 -80 0 0 {name=p2 sig_type=std_logic lab=GND}
 C {iopin.sym} 330 -590 0 0 {name=p3 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} 210 -240 2 1 {name=p5 sig_type=std_logic lab=virtual_gnd}
+C {lab_pin.sym} 320 -280 0 0 {name=p9 sig_type=std_logic lab=GND}

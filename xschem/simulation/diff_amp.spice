@@ -1,0 +1,10 @@
+** sch_path: /home/kevin/Documents/Sem8/BTP/AnalogDesign/AnalogChipTrial/xschem/diff_amp.sch
+.subckt diff_amp VDD vout1 vout2 vin1 vin2 Vb GND
+*.PININFO Vb:I vout2:O vout1:O vin2:I vin1:I GND:B VDD:B GND:B
+XM1 virtual_gnd Vb GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 m=1
+XM2 vout1 vout1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 m=1
+XM3 vout2 vout2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 m=1
+XM4 vout1 vin1 virtual_gnd GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM5 vout2 vin2 virtual_gnd GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+.ends
+.end

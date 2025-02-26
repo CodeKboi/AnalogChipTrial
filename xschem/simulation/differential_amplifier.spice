@@ -1,0 +1,54 @@
+** sch_path: /home/kevin/Documents/Sem8/BTP/AnalogDesign/AnalogChipTrial/xschem/differential_amplifier.sch
+**.subckt differential_amplifier
+V1 vin1 vin2 SIN(0 0.1 1k)
+V2 Vb GND 0.5
+V3 VDD GND 3.3
+x1 VDD vout1 vout2 vin1 vin2 Vb GND diff_amp
+x2 VDD vout1_ vout2_ vin1 vin2 Vb GND diff_amp_parax
+**** begin user architecture code
+
+
+
+.tran 1e-5 100e-3
+.save all
+
+
+
+
+
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /usr/local/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  diff_amp.sym # of pins=7
+** sym_path: /home/kevin/Documents/Sem8/BTP/AnalogDesign/AnalogChipTrial/xschem/diff_amp.sym
+** sch_path: /home/kevin/Documents/Sem8/BTP/AnalogDesign/AnalogChipTrial/xschem/diff_amp.sch
+.subckt diff_amp VDD vout1 vout2 vin1 vin2 Vb GND
+*.ipin Vb
+*.opin vout2
+*.opin vout1
+*.ipin vin2
+*.ipin vin1
+*.iopin GND
+*.iopin VDD
+XM1 virtual_gnd Vb GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 vout1 vout1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 vout2 vout2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 vout1 vin1 virtual_gnd GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 vout2 vin2 virtual_gnd GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  diff_amp_parax.sym # of pins=7
+** sym_path: /home/kevin/Documents/Sem8/BTP/AnalogDesign/AnalogChipTrial/xschem/diff_amp.sym
+.include /home/kevin/Documents/Sem8/BTP/AnalogDesign/AnalogChipTrial/mag/diff_amp.sim.spice
+.GLOBAL GND
+.end
